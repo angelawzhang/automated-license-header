@@ -2,7 +2,7 @@
 
 find_file() {
 
-    all_files=$(ls $1)
+    all_files=$(ls -a $1)
     hash_symbol_syntax=('sh' 'yml' 'yaml' 'ini' 'py' 'j2' 'config')
     minus_symbol_syntax=('lua')
 
@@ -17,7 +17,7 @@ find_file() {
                 cat hash_symbol_copyright.txt "$1/$file" >"$1/$file".new && mv "$1/$file".new "$1/$file"
                 echo "$file: LICENSE WAS UPDATED"
             fi
-        elif [ -d $1/$file ] && [ $1/$file != '.' ]; then
+        elif [ -d $1/$file ] && [ $file != '.' ] && [ $file != '..' ]; then
             find_file $1/$file
         fi
     done
