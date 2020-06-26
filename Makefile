@@ -3,4 +3,4 @@
 all: add-license
 
 add-license:
-	./license-automator.sh
+	./license-automator.sh .
